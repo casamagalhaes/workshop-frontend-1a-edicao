@@ -39,12 +39,16 @@ Se esperam duas telas:
   - Obter resultados **paginados**.
   - Mudar o tamanho das páginas.
   - **Ordenar** os resultados.
-  - Deve ser possível alterar o valor das horas extras apenas clicando no valor na tabela e inserindo novo valor.
 - Tela de cadastro:
   - Deve identificar quando é cadastro ou edição para que tenha o comportamento correto.
   - Deve permitir **criar** um novo funcionário quando for o caso.
   - Deve **exibir** todos os dados já existentes do funcionário em caso de **edição**, montando a tela com os **campos editáveis preenchidos**.
   - Deve permitir **atualizar** um funcionário quando for o caso.
+
+Extras: 
+
+- Alterar o valor das horas extras na listagem apenas clicando no valor na tabela e inserindo novo valor.
+- Manter os filtros aplicados na tabela salvos via Vuex.
 
 ## Como começar
 
