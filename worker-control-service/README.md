@@ -2,6 +2,8 @@
 
 Endpoints REST disponibilizados para dar suporte ao desenvolvimento do frontend.
 
+Documentação mais completa: https://documenter.getpostman.com/view/8141090/TzXunKQt
+
 ## Endpoints disponíveis em modo de desenvolvimento
 
 - <http://localhost:3000>
