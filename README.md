@@ -32,6 +32,8 @@ Os campos obrigatórios em um funcionário são: `id`, `nome`, `usuario`, `saldo
 
 A **documentação da API** está disponível em: https://documenter.getpostman.com/view/8141090/TzXunKQt, mas também há uma pequena documentação no README da pasta de serviço.
 
+Documentação da Shuri: https://shuri.casamagalhaes.services/
+
 Se esperam duas telas:
 
 - Tela de listagem:
