@@ -26,6 +26,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
     {
       nome: "Flávio",
@@ -39,6 +40,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
     {
       nome: "Osvaldo",
@@ -52,6 +54,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
     {
       nome: "Luís",
@@ -65,6 +68,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
     {
       nome: "Emanuel",
@@ -78,6 +82,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
     {
       nome: "Sandro",
@@ -91,6 +96,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
     {
       nome: "Carlos",
@@ -104,6 +110,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
     {
       nome: "Saulo",
@@ -117,6 +124,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
     {
       nome: "Ricardo",
@@ -130,6 +138,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
     {
       nome: "Eduardo",
@@ -143,6 +152,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
     {
       nome: "Alessandro",
@@ -156,6 +166,7 @@ exports.up = async function (knex) {
       endereco_bairro: "Luciano Cavalcante",
       endereco_cep: "60811110",
       endereco_numero: "800",
+      saldo_horas: 0,
     },
   ]);
 };
