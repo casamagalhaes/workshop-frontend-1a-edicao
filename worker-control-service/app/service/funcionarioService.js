@@ -50,8 +50,10 @@ export const find = async (id) => {
 };
 
 export const insert = async (funcionario) => {
+  delete funcionario.id;
   funcionario.criado_em = new Date().toISOString();
   funcionario.atualizado_em = new Date().toISOString();
+  funcionario.admin = funcionario.admin ? 1 : 0;
 
   return knex("funcionario").insert(funcionario);
 };
