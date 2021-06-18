@@ -8,5 +8,6 @@
 .layout {
   flex: 1;
   overflow: hidden;
+  padding: 20px;
 }
 </style>

@@ -11,7 +11,7 @@ const routes = [
     component: Home,
   },
   {
-    path: '/funcionario/:id',
+    path: '/funcionario/:id?',
     name: 'funcionarioForm',
     component: () =>
       import(/* webpackChunkName: "form" */ '../views/FuncionarioForm.vue'),

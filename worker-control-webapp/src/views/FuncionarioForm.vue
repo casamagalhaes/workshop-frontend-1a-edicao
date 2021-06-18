@@ -1,13 +1,30 @@
 <script>
+import Form from '@/components/Form'
 export default {
-  name: 'About',
+  name: 'FuncionarioForm',
+  components: { Form },
+  data() {
+    return {
+      worker: {},
+    }
+  },
+  mounted() {
+    if (this.$route.params.id) this.loadWorker()
+  },
+  methods: {
+    async loadWorker() {
+      this.worker = await this.$service.getById({
+        path: 'funcionarios',
+        id: this.$route.params.id,
+      })
+    },
+  },
 }
 </script>
 
 <template>
   <div class="about">
-    <h2>About page</h2>
-    <router-link to="/">Go to home page</router-link>
+    <Form :data="worker" />
   </div>
 </template>
 

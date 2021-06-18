@@ -13,6 +13,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
@@ -34,10 +38,18 @@ export default {
       </span>
     </article>
     <footer class="confirmation-modal__footer">
-      <ShrButton type="secondary" @click="$emit('cancel')">Cancelar</ShrButton>
+      <ShrButton
+        type="secondary"
+        :loading="loading"
+        :disabled="loading"
+        @click="$emit('cancel')"
+        >Cancelar</ShrButton
+      >
       <ShrButton
         type="secondary"
         secondary-type="danger"
+        :loading="loading"
+        :disabled="loading"
         @click="$emit('confirm')"
       >
         Confirmar

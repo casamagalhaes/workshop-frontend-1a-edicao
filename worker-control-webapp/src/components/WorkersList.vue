@@ -9,9 +9,9 @@ export default {
       columns: [
         { label: 'Código', name: 'id', width: 100 },
         { label: 'Nome', name: 'nome' },
+        { label: 'Setor', name: 'setor' },
         { label: 'Cargo', name: 'cargo' },
-        { label: 'Cargo', name: 'cargo' },
-        { label: 'Cargo', name: 'cargo' },
+        { label: 'Saldo de horas', name: 'saldo_horas' },
         { label: 'Administrador', name: 'admin', width: 150 },
         { label: '', name: 'actions', width: 90 },
       ],
@@ -23,6 +23,7 @@ export default {
       },
       workerToRemove: {},
       showConfirmationModal: false,
+      loading: false,
     }
   },
   computed: {
@@ -38,6 +39,7 @@ export default {
   methods: {
     async loadWorkers() {
       try {
+        this.loading = true
         const { items, total } = await this.$service.get({
           path: 'funcionarios',
           start: (this.pagination.page - 1) * this.pagination.pageSize,
@@ -48,6 +50,8 @@ export default {
         this.pagination.totalItems = total
       } catch (error) {
         console.error(error)
+      } finally {
+        this.loading = false
       }
     },
     changePage(page) {
@@ -83,6 +87,7 @@ export default {
     },
     async removeWorker() {
       try {
+        this.loading = true
         await this.$service.remove({
           path: 'funcionarios',
           id: this.workerToRemove.id,
@@ -93,6 +98,7 @@ export default {
         console.error(error)
       } finally {
         this.showConfirmationModal = false
+        this.loading = false
       }
     },
     goToForm(id) {
@@ -112,6 +118,7 @@ export default {
       api-pagination
       action-button-text="Criar funcionário"
       action-button-icon="add"
+      :loading="loading"
       :current-page="pagination.page"
       :total-rows="pagination.totalItems"
       :rows-per-page="pagination.pageSize"
@@ -145,6 +152,7 @@ export default {
 
     <ConfirmationModal
       :show-modal="showConfirmationModal"
+      :loading="loading"
       @cancel="resetConfirmationModal"
       @confirm="removeWorker"
     />
