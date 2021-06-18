@@ -6,10 +6,16 @@ export default {
   data() {
     return {
       worker: {},
+      loading: false,
     }
   },
+  computed: {
+    isEdition() {
+      return !!this.$route.params.id
+    },
+  },
   mounted() {
-    if (this.$route.params.id) this.loadWorker()
+    if (this.isEdition) this.loadWorker()
   },
   methods: {
     async loadWorker() {
@@ -18,18 +24,40 @@ export default {
         id: this.$route.params.id,
       })
     },
+    async saveWorker(data) {
+      try {
+        let method = 'update'
+        if (!this.isEdition) {
+          method = 'create'
+          delete data.id
+        }
+
+        await this.$service[method]({
+          path: 'funcionarios',
+          data,
+          id: data.id,
+        })
+
+        this.$router.push({ name: 'Home' })
+      } catch (error) {
+        console.error(error)
+      } finally {
+        this.loading = false
+      }
+    },
   },
 }
 </script>
 
 <template>
-  <div class="about">
-    <Form :data="worker" />
+  <div class="funcionario-form">
+    <Form :data="worker" @save="saveWorker" :loading="loading" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.about {
+.funcionario-form {
   height: 100%;
+  width: 100%;
 }
 </style>

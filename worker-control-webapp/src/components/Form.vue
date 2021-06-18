@@ -6,10 +6,15 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       formData: {
+        id: '',
         nome: '',
         usuario: '',
         setor: '',
@@ -94,7 +99,7 @@ export default {
       deep: true,
       immediate: true,
       handler(val) {
-        if (Object.keys(val).lenght) this.formData = { ...val }
+        if (Object.keys(val).length) this.formData = { ...val }
       },
     },
   },
@@ -145,8 +150,16 @@ export default {
       </ShrTab>
     </form>
     <footer class="form__footer">
-      <ShrButton type="secondary" @click="cancel">Cancelar</ShrButton>
-      <ShrButton type="success" :disabled="!isValidForm">Salvar</ShrButton>
+      <ShrButton type="secondary" :disabled="loading" @click="cancel">
+        Cancelar
+      </ShrButton>
+      <ShrButton
+        type="success"
+        :loading="loading"
+        :disabled="!isValidForm || loading"
+        @click="$emit('save', formData)"
+        >Salvar
+      </ShrButton>
     </footer>
   </section>
 </template>
