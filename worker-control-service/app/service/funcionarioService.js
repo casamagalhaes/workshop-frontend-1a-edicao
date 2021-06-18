@@ -13,7 +13,9 @@ export const list = async (query) => {
   const { start = 0, limit = 10, sort = {}, nome = "", ...q } = query;
   const s = JSON.parse(sort);
 
-  q.admin = !!q.admin;
+  if (q.admin === "false" || q.admin === false) q.admin = 0;
+  else if (q.admin === true || q.admin === "true") q.admin = 1;
+  else delete q.admin;
 
   let items = await knex("funcionario")
     .where("nome", "like", `%${nome}%`)
