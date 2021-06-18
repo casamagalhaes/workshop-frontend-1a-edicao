@@ -902,10 +902,10 @@
     "@babel/helper-validator-identifier" "^7.14.0"
     to-fast-properties "^2.0.0"
 
-"@casamagalhaes/shuri@^0.1.127":
-  version "0.1.127"
-  resolved "https://npm.pkg.github.com/download/@casamagalhaes/shuri/0.1.127/086766226d351a86a262afc2f168606b287b0aee3243a3f0cd7b01823c5051c3#1b2044097df55377a968c2634a0f03a62c88612a"
-  integrity sha512-FGaUIthUGe+uWZYxD8HJ/by2pYQA96h6hKMBOXLLMk+mPyWWEtolkuFIqSKLEgSSDT9MZ9y9ZB5oUoBcKKYclw==
+"@casamagalhaes/shuri@^0.1.137":
+  version "0.1.137"
+  resolved "https://npm.pkg.github.com/download/@casamagalhaes/shuri/0.1.137/3d8363ce21800387f5a548033fe536e2828146adf72729233fc76f12c6675ce2#9416e43761e5e71ff16afa18d391ea229a34cf55"
+  integrity sha512-Y4hCYrdCZo9vCEp/OsFK26QH+gB675MdhQnZk9iHZ2s6mcR/JBFBlWu7NMWZQMuIAZ2EQFISP1rAmw333ZqUmg==
   dependencies:
     axios "^0.21.1"
     core-js "^3.6.5"

@@ -1,14 +1,22 @@
 <script>
-export default {}
+export default {
+  name: 'Header',
+  methods: {
+    goToHomePage() {
+      this.$router.push({ name: 'Home' })
+    },
+  },
+}
 </script>
 
 <template>
-  <header class="header">Controle de usuários</header>
+  <ShrToolbar class="shr-color-brand-primary header">
+    <h1 @click="goToHomePage">Controle de usuários</h1>
+  </ShrToolbar>
 </template>
 
 <style lang="scss" scoped>
 .header {
-  background-color: black;
   color: white;
 }
 </style>

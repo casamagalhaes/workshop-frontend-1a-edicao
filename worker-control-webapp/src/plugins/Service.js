@@ -37,6 +37,7 @@ export default {
     }
 
     const update = async ({ path, id = '', data = {} } = {}) => {
+      console.log(id)
       if (this.resourceName) api.defaults.headers.resource = this.resourceName
       const response = await api.put(`${path}/${id}`, { ...data })
 
