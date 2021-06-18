@@ -1,9 +1,10 @@
 <script>
 import ConfirmationModal from './ConfirmationModal.vue'
+import ListFilters from './ListFilters.vue'
 
 export default {
   name: 'WorkersList',
-  components: { ConfirmationModal },
+  components: { ConfirmationModal, ListFilters },
   data() {
     return {
       columns: [
@@ -24,6 +25,7 @@ export default {
       workerToRemove: {},
       showConfirmationModal: false,
       loading: false,
+      filterValues: {},
     }
   },
   computed: {
@@ -45,6 +47,7 @@ export default {
           start: (this.pagination.page - 1) * this.pagination.pageSize,
           limit: this.pagination.pageSize,
           sort: { prop: 'id', direction: 'asc' },
+          q: this.filterValues,
         })
         this.workers = items
         this.pagination.totalItems = total
@@ -104,12 +107,18 @@ export default {
     goToForm(id) {
       this.$router.push({ name: 'funcionarioForm', params: { id } })
     },
+    doFilter(payload) {
+      this.filterValues = payload
+      this.pagination.page = 1
+      this.loadWorkers()
+    },
   },
 }
 </script>
 
 <template>
   <section class="table-area">
+    <ListFilters class="table-area__filters" @filter="doFilter" />
     <ShrTable
       title="Lista de funcionários"
       grayscale
@@ -161,7 +170,11 @@ export default {
 
 <style lang="scss" scoped>
 .table-area {
-  height: 100%;
+  height: calc(100% - 60px);
+
+  &__filters {
+    padding-bottom: 15px;
+  }
 
   &__actions {
     display: flex;
