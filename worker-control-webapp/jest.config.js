@@ -4,6 +4,7 @@ module.exports = {
     '^.+\\.vue$': 'vue-jest',
     '^.+\\.js$': 'babel-jest',
   },
+  setupFiles: ['<rootDir>/tests/unit/setup'],
   setupFilesAfterEnv: ['<rootDir>/tests/unit/custom-matchers.js'],
   testMatch: ['**/(*.)test.js'],
   coverageDirectory: '<rootDir>/tests/unit/coverage',

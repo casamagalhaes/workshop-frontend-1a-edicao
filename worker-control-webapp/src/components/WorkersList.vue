@@ -1,6 +1,7 @@
 <script>
 import ConfirmationModal from './ConfirmationModal.vue'
 import ListFilters from './ListFilters.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'WorkersList',
@@ -30,14 +31,22 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['filters']),
     totalPages() {
       const { totalItems, pageSize } = this.pagination
 
       return Math.ceil(totalItems / pageSize)
     },
   },
-  mounted() {
-    this.loadWorkers()
+  watch: {
+    filters: {
+      immediate: true,
+      deep: true,
+      handler(val) {
+        this.filterValues = val
+        this.loadWorkers()
+      },
+    },
   },
   methods: {
     async loadWorkers() {

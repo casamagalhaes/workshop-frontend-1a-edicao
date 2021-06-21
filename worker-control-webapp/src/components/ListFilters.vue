@@ -1,4 +1,6 @@
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'ListFilters',
   data() {
@@ -6,7 +8,20 @@ export default {
       filterValues: {},
     }
   },
+  computed: {
+    ...mapGetters(['filters']),
+  },
+  watch: {
+    filters: {
+      immediate: true,
+      deep: true,
+      handler(val) {
+        this.filterValues = val
+      },
+    },
+  },
   methods: {
+    ...mapActions(['saveFilterValues']),
     onTypeOnSearch(value, prop) {
       this.filterValues[prop] = value
 
@@ -17,6 +32,8 @@ export default {
 
       if (!this.filterValues.id) delete this.filterValues.id
       this.$emit('filter', this.filterValues)
+
+      this.saveFilterValues(this.filterValues)
     },
   },
 }
