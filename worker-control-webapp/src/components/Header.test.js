@@ -6,7 +6,10 @@ describe('src/components/Header.vue', () => {
   })
 
   describe('Common methods', () => {
+    // Teste com mock da instância do $router através do objeto mocks
+    // https://vue-test-utils.vuejs.org/api/options.html#mocks
     it('SHOULD define default props', () => {
+      // Função mockada que será usada no mock do método push do router
       const pushMock = jest.fn()
 
       const wrapper = shallowMount(Header, {

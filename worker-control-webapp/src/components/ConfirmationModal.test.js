@@ -6,8 +6,12 @@ describe('src/components/ConfirmationModal.vue', () => {
   })
 
   describe('Initialization', () => {
+    // Teste que verifica se as props foram inicializadas com
+    // valores default corretos. Garante segurança em caso
+    // de mudança no valor default das props.
     it('SHOULD define default props', () => {
       const pushMock = jest.fn()
+      // Método shallowMount monta o componente e está registrado globalmente no setup.js
       const wrapper = shallowMount(ConfirmationModal)
 
       expect(wrapper.vm.mainText).toEqual(
