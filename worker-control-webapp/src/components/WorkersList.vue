@@ -8,11 +8,11 @@ export default {
   data() {
     return {
       columns: [
-        { label: 'Código', name: 'id', width: 100 },
-        { label: 'Nome', name: 'nome' },
+        { label: 'Código', name: 'id', width: 100, sortable: true },
+        { label: 'Nome', name: 'nome', sortable: true, minWidth: 100 },
         { label: 'Setor', name: 'setor' },
         { label: 'Cargo', name: 'cargo' },
-        { label: 'Saldo de horas', name: 'saldo_horas' },
+        { label: 'Saldo de horas', name: 'saldo_horas', sortable: true },
         { label: 'Administrador', name: 'admin', width: 150 },
         { label: '', name: 'actions', width: 90 },
       ],
@@ -21,6 +21,7 @@ export default {
         pageSize: 10,
         page: 1,
         totalItems: 0,
+        sort: { prop: 'id', direction: 'asc' },
       },
       workerToRemove: {},
       showConfirmationModal: false,
@@ -46,7 +47,7 @@ export default {
           path: 'funcionarios',
           start: (this.pagination.page - 1) * this.pagination.pageSize,
           limit: this.pagination.pageSize,
-          sort: { prop: 'id', direction: 'asc' },
+          sort: this.pagination.sort,
           q: this.filterValues,
         })
         this.workers = items
@@ -112,6 +113,10 @@ export default {
       this.pagination.page = 1
       this.loadWorkers()
     },
+    changeOrdering({ sort, sortBy }) {
+      this.pagination.sort = { prop: sortBy, direction: sort }
+      this.loadWorkers()
+    },
   },
 }
 </script>
@@ -133,6 +138,7 @@ export default {
       :rows-per-page="pagination.pageSize"
       @update:currentPage="changePage"
       @update:rowsPerPage="changePageSize"
+      @update:sortProps="changeOrdering"
       @action-button-click="goToForm"
     >
       <template v-slot:table-cell-admin="{ row }">

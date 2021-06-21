@@ -24,8 +24,18 @@ export default {
 
 <template>
   <section class="filters">
-    <ShrInput label="Código" size="xg" @input="onTypeOnSearch($event, 'id')" />
-    <ShrInput label="Nome" size="xg" @input="onTypeOnSearch($event, 'nome')" />
+    <ShrInput
+      :value="filterValues.id"
+      label="Código"
+      size="xg"
+      @input="onTypeOnSearch($event, 'id')"
+    />
+    <ShrInput
+      :value="filterValues.nome"
+      label="Nome"
+      size="xg"
+      @input="onTypeOnSearch($event, 'nome')"
+    />
   </section>
 </template>
 
