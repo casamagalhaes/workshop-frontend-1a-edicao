@@ -6,6 +6,7 @@ O worker-control é uma aplicação simples para registrar funcionários de um e
 
 - Última versão LTS do [Node](https://nodejs.org/en/)
 - `.npmrc` contendo token de acesso à Shuri (solicitar à equipe de desenvolvimento)
+   - Caso queira desenvolver sem a Shuri no projeto, basta remover a dependência e tudo que faz menção a ela dando um Ctrl + F por 'shuri' no projeto.
 
 É interessante ter a extensão `Vue.js devtools` instalada no navegador (Chrome).
 
